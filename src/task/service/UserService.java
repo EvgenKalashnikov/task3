@@ -12,17 +12,17 @@ public class UserService {
         this.scanner = scanner;
     }
 
-    public String readWord() {
+    private String readWord() {
         return scanner.next();
     }
-    public boolean validate(String inputWord, String regexpExpression){
+    private boolean validate(String inputWord, String regexpExpression){
         Pattern pattern = Pattern.compile(regexpExpression);
         Matcher matcher = pattern.matcher(inputWord);
         return matcher.matches();
 
     }
 
-    public String getToken(String regexp, String question1) {
+    private String getToken(String regexp, String question1) {
         String s;
         while (true) {
             System.out.println(question1);
@@ -35,7 +35,6 @@ public class UserService {
         return s;
     }
     public String getString(String regexp, String question2) {
-        String s = getToken(regexp, question2);
-        return s;
+        return getToken(regexp, question2);
     }
 }
