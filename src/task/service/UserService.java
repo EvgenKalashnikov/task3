@@ -22,7 +22,7 @@ public class UserService {
 
     }
 
-    private String getToken(String regexp, String question1) {
+    public String getToken(String regexp, String question1) {
         String s;
         while (true) {
             System.out.println(question1);
@@ -34,7 +34,5 @@ public class UserService {
         }
         return s;
     }
-    public String getString(String regexp, String question2) {
-        return getToken(regexp, question2);
-    }
+
 }
