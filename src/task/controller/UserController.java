@@ -40,42 +40,36 @@ public class UserController {
 
         String regexp;
         regexp = properties.getProperty("postIndex.regexp");
-        String postIndex = getString(regexp, question1);
+        String postIndex = userService.getString(regexp, question1);
         regexp = properties.getProperty("city.regexp");
-        String city = getString(regexp, question2);
+        String city = userService.getString(regexp, question2);
         regexp = properties.getProperty("street.regexp");
-        String street = getString(regexp, question3);
+        String street = userService.getString(regexp, question3);
         regexp = properties.getProperty("houseNumber.regexp");
-        String houseNumber = getString(regexp, question4);
+        String houseNumber = userService.getString(regexp, question4);
         regexp = properties.getProperty("flatNumber.regexp");
-        String flatNumber = getString(regexp, question5);
+        String flatNumber = userService.getString(regexp, question5);
         regexp = properties.getProperty("firstName.regexp");
-        String firstName = getString(regexp, question6);
+        String firstName = userService.getString(regexp, question6);
         regexp = properties.getProperty("middleName.regexp");
-        String middleName = getString(regexp, question7);
+        String middleName = userService.getString(regexp, question7);
         regexp = properties.getProperty("lastName.regexp");
-        String lastName = getString(regexp, question8);
+        String lastName = userService.getString(regexp, question8);
         regexp = properties.getProperty("nickname.regexp");
-        String nickname = getString(regexp, question9);
+        String nickname = userService.getString(regexp, question9);
         regexp = properties.getProperty("comments.regexp");
-        String comments = getString(regexp, question10);
+        String comments = userService.getString(regexp, question10);
         regexp = properties.getProperty("phoneNumber.regexp");
-        String phoneNumber = getString(regexp, question11);
+        String phoneNumber = userService.getString(regexp, question11);
         regexp = properties.getProperty("email.regexp");
-        String email = getString(regexp, question12);
+        String email = userService.getString(regexp, question12);
         regexp = properties.getProperty("skype.regexp");
-        String skype = getString(regexp, question13);
+        String skype = userService.getString(regexp, question13);
 
         User user = new User(firstName, middleName, lastName, nickname, comments, phoneNumber, email, skype, new Date(), new Date(), new Address(postIndex, city, street, houseNumber, flatNumber));
         userView.show(user);
 
     }
 
-
-
-    private String getString(String regexp, String question2) {
-        String s = userService.getString(regexp, question2);
-        return s;
-    }
 
 }
