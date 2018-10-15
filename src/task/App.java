@@ -6,8 +6,6 @@ import task.service.UserService;
 import task.view.UserView;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class App {
     private static final String propPath="src/task/resource/RegularExpressions.properties";

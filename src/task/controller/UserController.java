@@ -34,145 +34,48 @@ public class UserController {
     }
 
     public void appProcess() {
-        String postIndex;
-        String city;
-        String street;
-        String houseNumber;
-        String flatNumber;
-        String firstName ;
-        String middleName;
-        String lastName;
-        String nickname;
-        String comments;
-        String phoneNumber;
-        String email;
-        String skype;
+
 
         Properties properties = propertiesService.getProperties();
 
         String regexp;
         regexp = properties.getProperty("postIndex.regexp");
-        while (true) {
-            System.out.println(question1);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                postIndex = inputWord;
-                break;
-            }
-        }
-
+        String postIndex = getString(regexp, question1);
         regexp = properties.getProperty("city.regexp");
-        while (true) {
-            System.out.println(question2);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                city = inputWord;
-                break;
-            }
-        }
+        String city = getString(regexp, question2);
         regexp = properties.getProperty("street.regexp");
-        while (true) {
-            System.out.println(question3);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                street = inputWord;
-                break;
-            }
-        }
+        String street = getString(regexp, question3);
         regexp = properties.getProperty("houseNumber.regexp");
-        while (true) {
-            System.out.println(question4);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                houseNumber = inputWord;
-                break;
-            }
-        }
+        String houseNumber = getString(regexp, question4);
         regexp = properties.getProperty("flatNumber.regexp");
-        while (true) {
-            System.out.println(question5);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                flatNumber = inputWord;
-                break;
-            }
-        }
+        String flatNumber = getString(regexp, question5);
         regexp = properties.getProperty("firstName.regexp");
-        while (true) {
-            System.out.println(question6);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                firstName = inputWord;
-                break;
-            }
-        }
+        String firstName = getString(regexp, question6);
         regexp = properties.getProperty("middleName.regexp");
-        while (true) {
-            System.out.println(question7);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                middleName = inputWord;
-                break;
-            }
-        }
+        String middleName = getString(regexp, question7);
         regexp = properties.getProperty("lastName.regexp");
-        while (true) {
-            System.out.println(question8);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                lastName = inputWord;
-                break;
-            }
-        }
+        String lastName = getString(regexp, question8);
         regexp = properties.getProperty("nickname.regexp");
-        while (true) {
-            System.out.println(question9);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                nickname = inputWord;
-                break;
-            }
-        }
+        String nickname = getString(regexp, question9);
         regexp = properties.getProperty("comments.regexp");
-        while (true) {
-            System.out.println(question10);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                comments = inputWord;
-                break;
-            }
-        }
+        String comments = getString(regexp, question10);
         regexp = properties.getProperty("phoneNumber.regexp");
-        while (true) {
-            System.out.println(question11);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                phoneNumber = inputWord;
-                break;
-            }
-        }
+        String phoneNumber = getString(regexp, question11);
         regexp = properties.getProperty("email.regexp");
-        while (true) {
-            System.out.println(question12);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                email = inputWord;
-                break;
-            }
-        }
+        String email = getString(regexp, question12);
         regexp = properties.getProperty("skype.regexp");
-        while (true) {
-            System.out.println(question13);
-            String inputWord = userService.readWord();
-            if (userService.validate(inputWord, regexp)) {
-                skype = inputWord;
-                break;
-            }
-        }
+        String skype = getString(regexp, question13);
 
         User user = new User(firstName, middleName, lastName, nickname, comments, phoneNumber, email, skype, new Date(), new Date(), new Address(postIndex, city, street, houseNumber, flatNumber));
         userView.show(user);
 
+    }
+
+
+
+    private String getString(String regexp, String question2) {
+        String s = userService.getString(regexp, question2);
+        return s;
     }
 
 }

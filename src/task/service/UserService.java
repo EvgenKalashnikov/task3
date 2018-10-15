@@ -22,7 +22,16 @@ public class UserService {
 
     }
 
-    public String getRegexp() {
-        return null;
+    public String getString(String regexp, String question1) {
+        String s;
+        while (true) {
+            System.out.println(question1);
+            String inputWord = readWord();
+            if (validate(inputWord, regexp)) {
+                s = inputWord;
+                break;
+            }
+        }
+        return s;
     }
 }
